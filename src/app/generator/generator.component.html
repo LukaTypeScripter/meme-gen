@@ -1,0 +1,47 @@
+<div class="app mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="">
+                            <div class="form-group">
+                                <label for="">Select Image</label>
+                                <input type="file" class="form-control" accept="image/*" (change)="previvew($event)">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Top Text</label>
+                                <input type="text" class="form-control" name="topTexts" [(ngModel)]="topTexts" #ctrl="ngModel" (keyup)="drawText()">
+                            </div>
+                            <div class="form-group">
+                                <label for="">bottom Text</label>
+                                <input type="text" class="form-control" name="bottomText" [(ngModel)]="bottomText" #ctrl="ngModel" (keyup)="drawText()">
+                            </div>
+                           <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">text color</label>
+                                    <color-chrome (onChangeComplete)="canvasTextColor($event)"></color-chrome>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">background color</label>
+                                    <color-chrome (onChangeComplete)="canvasBgColor($event)"></color-chrome>
+                                </div>
+                            </div>
+                           </div>
+                           <button (click)="downloadImg()" class="btn btn-outline-primary btn-block mt-5">Download</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+               <canvas class="drop-shadow" #memeCanvas width="700" height="800" style="background-color: #f9f9fb;"></canvas>
+            </div>
+        </div>
+    </div>
+
+</div>
